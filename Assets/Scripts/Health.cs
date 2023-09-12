@@ -8,7 +8,6 @@ public class Health : MonoBehaviour
     [SerializeField] private int hitPoints = 2;
     [SerializeField] private int currencyWorth = 50;
 
-    
     [SerializeField] public GameObject deathAnim;
     //private bool isDestroyed = false;
 
@@ -16,15 +15,15 @@ public class Health : MonoBehaviour
     {
         hitPoints -= dmg;
 
-        if(hitPoints <= 0)
+        if (hitPoints <= 0)
         {
             Vector3 currentPosition = transform.position;
             EnemySpawner.onEnemyDestroy.Invoke();
-            LevelManager.main.IncreaseCurrency(currencyWorth);
+            LevelManager.main.Currency += currencyWorth;
             //isDestroyed = true;
             Destroy(gameObject);
             Instantiate(deathAnim, currentPosition, Quaternion.identity);
-            
         }
     }
 }
+

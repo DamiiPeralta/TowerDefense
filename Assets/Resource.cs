@@ -1,47 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class Resource : MonoBehaviour
 {
-    public MaterialToScavange choose;
+    public MaterialToScavenge choose;
     public GameObject floatingText;
     public int health = 10;
 
-
-    private void Update() 
+    private void Update()
     {
-        if(health <= 0)
+        if (health <= 0)
         {
             Destroy(gameObject, 3f);
         }
     }
-    
+
     public void TakeHit(int toolHit)
     {
         health -= toolHit;
         Debug.Log(health);
-        if(choose == MaterialToScavange.Stone)
+
+        if (choose == MaterialToScavenge.Stone)
         {
-            LevelManager.main.stone += toolHit;
+            // Incrementa la piedra en LevelManager usando la propiedad pública.
+            LevelManager.main.Stone += toolHit;
         }
-        if(choose == MaterialToScavange.Wood)
+        else if (choose == MaterialToScavenge.Wood)
         {
-            LevelManager.main.wood += toolHit;
+            // Incrementa la madera en LevelManager usando la propiedad pública.
+            LevelManager.main.Wood += toolHit;
         }
-        floatingText.gameObject.GetComponent<FloatingText>().ChangeText( "+" + toolHit + choose);
-        Instantiate(floatingText, transform.position, Quaternion.identity);
-        
+
+        // Crea y muestra el texto flotante.
+        ShowFloatingText("+" + toolHit + " " + choose);
     }
 
-    public enum MaterialToScavange
+    private void ShowFloatingText(string text)
     {
-       Stone,
-       Wood
+        // Crea y muestra el texto flotante en la posición actual del recurso.
+        GameObject floatingTextObj = Instantiate(floatingText, transform.position, Quaternion.identity);
+        TextMeshProUGUI textMesh = floatingTextObj.GetComponent<TextMeshProUGUI>();
+        
+        if (textMesh != null)
+        {
+            textMesh.text = text;
+        }
+
+        // Destruye el objeto de texto flotante después de un tiempo.
+        Destroy(floatingTextObj, 2.0f);
+    }
+
+    public enum MaterialToScavenge
+    {
+        Stone,
+        Wood
     }
 }
-
-
-

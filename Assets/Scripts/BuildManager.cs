@@ -24,5 +24,6 @@ public class BuildManager : MonoBehaviour
     public void SetSelectedTower(int _selectedTower)
     {
         selectedTower = _selectedTower;
+        Debug.Log(selectedTower);
     }
 }

@@ -14,22 +14,23 @@ public class Menu : MonoBehaviour
 
     private bool isMenuOpen = true;
 
-    private void Update() 
+    private void Update()
     {
-        OnGUI();    
+        UpdateUI(); // Renombrado OnGUI() a UpdateUI()
     }
 
     public void ToggleMenu()
     {
         isMenuOpen = !isMenuOpen;
         anim.SetBool("OpenMenu", isMenuOpen);
-    } 
+    }
 
-    private void OnGUI() 
+    private void UpdateUI()
     {
-        currencyUI.text = LevelManager.main.currency.ToString();
-        currencyUI2.text = LevelManager.main.currency.ToString();
-        stoneUI.text = LevelManager.main.stone.ToString();   
-        woodUI.text = LevelManager.main.wood.ToString();       
+        // Actualiza los valores de la interfaz de usuario con los datos del LevelManager.
+        currencyUI.text = LevelManager.main.Currency.ToString();
+        currencyUI2.text = LevelManager.main.Currency.ToString();
+        stoneUI.text = LevelManager.main.Stone.ToString();
+        woodUI.text = LevelManager.main.Wood.ToString();
     }
 }

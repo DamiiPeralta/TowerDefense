@@ -9218,8 +9218,8 @@ GameObject:
   - component: {fileID: 71490940}
   - component: {fileID: 71490943}
   - component: {fileID: 71490942}
-  - component: {fileID: 71490941}
   - component: {fileID: 71490944}
+  - component: {fileID: 71490941}
   m_Layer: 5
   m_Name: BasicTurret
   m_TagString: Untagged
@@ -9351,9 +9351,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 71490939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7da04f8d8f8acad4aa244027b4afdf04, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 806922140}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &74850199
 GameObject:
   m_ObjectHideFlags: 0
@@ -10506,6 +10523,7 @@ GameObject:
   - component: {fileID: 151592425}
   - component: {fileID: 151592424}
   - component: {fileID: 151592423}
+  - component: {fileID: 151592426}
   m_Layer: 5
   m_Name: ExplosiveTurret
   m_TagString: Untagged
@@ -10628,6 +10646,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151592421}
   m_CullTransparentMesh: 1
+--- !u!114 &151592426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151592421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 806922140}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &176680955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55399,7 +55446,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -55423,7 +55470,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.65, y: -16.44, z: -10}
+  m_LocalPosition: {x: 1.97, y: 0.84, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58196,9 +58243,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 806922143}
+  - component: {fileID: 806922147}
   - component: {fileID: 806922142}
-  - component: {fileID: 806922141}
+  - component: {fileID: 806922144}
+  - component: {fileID: 806922146}
   m_Layer: 0
   m_Name: MouseObjectImage
   m_TagString: Untagged
@@ -58206,25 +58254,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &806922141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806922140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e74c6bd62ef0e804cbacddb5ed049b0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 806922140}
-  tower:
-    name: 
-    cost: 0
-    stoneCost: 0
-    woodCost: 0
-    prefab: {fileID: 0}
 --- !u!212 &806922142
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58265,7 +58294,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2099545279
   m_SortingLayer: 7
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.49019608}
   m_FlipX: 0
@@ -58277,21 +58306,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &806922143
-Transform:
+--- !u!114 &806922144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806922140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd7e53b3a5c4e74296d9cb0606bd46a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  constructionSprite: {fileID: -1502566671, guid: 14b6da4c97820624db172542a6bb4463, type: 3}
+--- !u!222 &806922146
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806922140}
+  m_CullTransparentMesh: 1
+--- !u!224 &806922147
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806922140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7732302, y: 0.074180365, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.7732302, y: 0.074180365}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &811481243 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5868540563393241196, guid: 5a7226d2ac747a04eba91f8370bb3348, type: 3}
@@ -60495,10 +60550,6 @@ MonoBehaviour:
   - {fileID: 1979396255}
   - {fileID: 1686578429}
   - {fileID: 377814285}
-  lives: 8
-  currency: 1000
-  stone: 15
-  wood: 15
 --- !u!4 &1011348695
 Transform:
   m_ObjectHideFlags: 0
@@ -61697,6 +61748,7 @@ GameObject:
   - component: {fileID: 1160509451}
   - component: {fileID: 1160509450}
   - component: {fileID: 1160509449}
+  - component: {fileID: 1160509452}
   m_Layer: 5
   m_Name: 'Slomo Turret '
   m_TagString: Untagged
@@ -61819,6 +61871,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160509447}
   m_CullTransparentMesh: 1
+--- !u!114 &1160509452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160509447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 806922140}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1185339361
 PrefabInstance:
   m_ObjectHideFlags: 0

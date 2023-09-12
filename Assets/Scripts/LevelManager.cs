@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -23,13 +22,33 @@ public class LevelManager : MonoBehaviour
 
     public GameObject[] hearts;
 
-    public int lives;
+    private int lives;
+    public int Lives
+    {
+        get { return lives; }
+        set { lives = value; }
+    }
 
-    public int currency;
+    private int currency;
+    public int Currency
+    {
+        get { return currency; }
+        set { currency = value; }
+    }
 
-    public int stone;
+    private int stone;
+    public int Stone
+    {
+        get { return stone; }
+        set { stone = value; }
+    }
 
-    public int wood;
+    private int wood;
+    public int Wood
+    {
+        get { return wood; }
+        set { wood = value; }
+    }
 
     private void Awake()
     {
@@ -38,19 +57,16 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        currency = 1000;
-        stone = 50;
-        wood = 50;
-        lives = 8;
-
+        ResetResources();
+        ResetHearts();
     }
 
     public void EliminateHearth()
     {
-        --lives;
-        if(lives > 0)
+        Lives--;
+        if (Lives > 0)
         {
-            hearts[lives].SetActive(false);
+            hearts[Lives].SetActive(false);
         }
         else
         {
@@ -59,78 +75,45 @@ public class LevelManager : MonoBehaviour
             centerTextChanged.gameObject.SetActive(true);
             state = LevelState.Lose;
         }
-        
     }
 
     public void ResetHearts()
     {
-        lives = 8;
+        Lives = hearts.Length;
         for (int i = 0; i < hearts.Length; i++)
         {
             hearts[i].SetActive(true);
-            state = LevelState.Win;
         }
-    } 
-
-    public void IncreaseCurrency(int amount)
-    {
-        currency += amount;
+        state = LevelState.Win;
     }
 
-    public bool SpendEverything(int spendCurrency, int spendStone, int spendWood)
+    public bool SpendResources(int spendCurrency, int spendStone, int spendWood)
     {
-        if(SpendCurrency(spendCurrency) == true && SpendStone(spendStone) == true && SpendWood(spendWood) == true)
+        if (Currency >= spendCurrency && Stone >= spendStone && Wood >= spendWood)
         {
-            currency -= spendCurrency;
-            stone -= spendStone;
-            wood -= spendWood;
+            Currency -= spendCurrency;
+            Stone -= spendStone;
+            Wood -= spendWood;
             return true;
         }
         else
         {
-            return false;
-        }   
-    }
-
-    public bool SpendCurrency(int amount)
-    {
-        if(amount <= currency)
-        {
-            
-            return true;
-        } else {
-            Debug.Log("You do not have enough gold to purchase this item");
+            Debug.Log("Not enough resources to make this purchase.");
             return false;
         }
     }
 
-    public bool SpendStone(int spendStone)
-    {
-        if(spendStone <= stone)
-        {
-            return true;
-        } else {
-            Debug.Log("You do not have enough stone to purchase this item");
-            return false;
-        }
-    }
-
-    public bool SpendWood(int spendWood)
-    {
-        if(spendWood <= wood)
-        {
-            
-            return true;
-        } else {
-            Debug.Log("You do not have enough wood to purchase this item");
-            return false;
-        }
-    }
-    
     public enum LevelState
     {
         Win,
         Lose,
         Playing
+    }
+
+    private void ResetResources()
+    {
+        Currency = 1000;
+        Stone = 50;
+        Wood = 50;
     }
 }
