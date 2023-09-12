@@ -1,0 +1,23 @@
+# Unity specific
+Temp/
+Library/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+
+# Visual Studio Code
+.vscode/
+
+
+# Rider
+.idea/
+
+# User-specific files
+*.suo
+*.user
+*.userprefs
+
+# Cache directories
+Cache/
