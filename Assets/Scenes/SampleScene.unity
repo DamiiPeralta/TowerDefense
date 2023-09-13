@@ -9218,7 +9218,6 @@ GameObject:
   - component: {fileID: 71490940}
   - component: {fileID: 71490943}
   - component: {fileID: 71490942}
-  - component: {fileID: 71490944}
   - component: {fileID: 71490941}
   m_Layer: 5
   m_Name: BasicTurret
@@ -9304,6 +9303,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 806922144}
+        m_TargetAssemblyTypeName: DragAndDropHandler, Assembly-CSharp
+        m_MethodName: TowerSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &71490942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9342,35 +9353,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71490939}
   m_CullTransparentMesh: 1
---- !u!114 &71490944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71490939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 806922140}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &74850199
 GameObject:
   m_ObjectHideFlags: 0
@@ -10523,7 +10505,6 @@ GameObject:
   - component: {fileID: 151592425}
   - component: {fileID: 151592424}
   - component: {fileID: 151592423}
-  - component: {fileID: 151592426}
   m_Layer: 5
   m_Name: ExplosiveTurret
   m_TagString: Untagged
@@ -10608,6 +10589,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 806922144}
+        m_TargetAssemblyTypeName: DragAndDropHandler, Assembly-CSharp
+        m_MethodName: TowerSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &151592424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10646,35 +10639,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151592421}
   m_CullTransparentMesh: 1
---- !u!114 &151592426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151592421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 806922140}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1001 &176680955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58319,6 +58283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constructionSprite: {fileID: -1502566671, guid: 14b6da4c97820624db172542a6bb4463, type: 3}
+  isDragging: 0
 --- !u!222 &806922146
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -60606,19 +60571,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers:
   - name: Basic Turret
-    cost: 100
-    stoneCost: 2
-    woodCost: 2
+    cost: 1
+    stoneCost: 1
+    woodCost: 1
     prefab: {fileID: 6252208760574705603, guid: 4b35a985d8ab2d142b848e5794e57ef9, type: 3}
   - name: Slowmo Turret
-    cost: 150
-    stoneCost: 5
-    woodCost: 5
+    cost: 1
+    stoneCost: 1
+    woodCost: 1
     prefab: {fileID: 4770077650668978810, guid: bfe67365db6bbe84e8a0ebcf060eed87, type: 3}
   - name: Explosive Turret
-    cost: 500
-    stoneCost: 5
-    woodCost: 5
+    cost: 1
+    stoneCost: 1
+    woodCost: 1
+    prefab: {fileID: 6252208760574705603, guid: 24b049ab4874a1444a5a67625c6f7578, type: 3}
+  - name: Nara Turret
+    cost: 1
+    stoneCost: 1
+    woodCost: 1
     prefab: {fileID: 6252208760574705603, guid: 24b049ab4874a1444a5a67625c6f7578, type: 3}
 --- !u!114 &1011348698
 MonoBehaviour:
@@ -61748,7 +61718,6 @@ GameObject:
   - component: {fileID: 1160509451}
   - component: {fileID: 1160509450}
   - component: {fileID: 1160509449}
-  - component: {fileID: 1160509452}
   m_Layer: 5
   m_Name: 'Slomo Turret '
   m_TagString: Untagged
@@ -61833,6 +61802,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 806922144}
+        m_TargetAssemblyTypeName: DragAndDropHandler, Assembly-CSharp
+        m_MethodName: TowerSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1160509450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61871,35 +61852,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160509447}
   m_CullTransparentMesh: 1
---- !u!114 &1160509452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1160509447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 806922140}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1001 &1185339361
 PrefabInstance:
   m_ObjectHideFlags: 0

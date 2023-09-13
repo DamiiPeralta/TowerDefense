@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
- 
+
 public class Turret : MonoBehaviour
 {
     [Header("Reference")]
@@ -29,16 +29,18 @@ public class Turret : MonoBehaviour
     private float timeUntilFire;
     private int level  = 1;
 
+    private Plot currentPlot; // Almacena el Plot actual donde se coloca la torre.
+
     private void Start() 
     {
-       bpsBase = bps;
-       targetingRangeBase = targetingRange;
+        bpsBase = bps;
+        targetingRangeBase = targetingRange;
 
-       upgradeButton.onClick.AddListener(Upgrade); 
+        upgradeButton.onClick.AddListener(Upgrade); 
     }
     private void Update() 
     {
-        if(target == null)
+        if (target == null)
         {
             FindTarget();
             return;
@@ -46,13 +48,16 @@ public class Turret : MonoBehaviour
 
         RotateTowardsTarget();  
 
-        if(!CheckTargetIsInRange())
+        if (!CheckTargetIsInRange())
         {
             target = null;
-        } else {
+        } 
+        else 
+        {
             timeUntilFire += Time.deltaTime;
 
-            if(timeUntilFire >= 1f / bps){
+            if (timeUntilFire >= 1f / bps)
+            {
                 Shoot();
                 timeUntilFire = 0f;
             }
@@ -77,9 +82,9 @@ public class Turret : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)
         transform.position, 0f, enemyMask);
 
-        if(hits.Length > 0)
+        if (hits.Length > 0)
         {
-                target = hits[0].transform;
+            target = hits[0].transform;
         }
     }
 
@@ -97,44 +102,33 @@ public class Turret : MonoBehaviour
     {
         upgradeUI.SetActive(true);
     }
+
     public void CloseUpgradeUI()
     {
         upgradeUI.SetActive(false);
         UIManager.main.SetHoveringState(false);
     }
+
+    public void OnTowerPlaced(Plot plot)
+    {
+        currentPlot = plot;
+        // Puedes realizar acciones adicionales aquí cuando se coloca la torre en un Plot.
+    }
+
     private void Upgrade()
     {
-        //if(CalculateCost() > LevelManager.main.currency) return;
-
-        //LevelManager.main.SpendCurrency(CalculateCost(),0,0);
-
-        level++;
-
-        bps = CalculateBPS();
-        targetingRange = CalculateRange();
+        //...
 
         CloseUpgradeUI();
-        Debug.Log("New BPS: " + bps);
-        Debug.Log("New Range: " + targetingRange);
-        Debug.Log("New Cost: " + CalculateCost());
+
+        if (currentPlot != null)
+        {
+            // Notifica al Plot que la torre ha sido mejorada.
+            currentPlot.OnTowerUpgraded();
+        }
+
+        //...
     }
 
-    private int CalculateCost()
-    {
-        return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
-    }
-    private float CalculateBPS() 
-    {
-        return bpsBase * Mathf.Pow(level, 0.6f);
-    }
-
-    private float CalculateRange()
-    {
-        return targetingRangeBase * Mathf.Pow(level, 0.4f);
-    }
-    private void OnDrawGizmos()
-    {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }
+    //...
 }
