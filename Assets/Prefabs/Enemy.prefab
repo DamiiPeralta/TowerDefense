@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3709505195229339461}
-  moveSpeed: 2
+  moveSpeed: 10
   checkpoint: 0
   newPath: 0
 --- !u!114 &5320150765212688288
@@ -177,7 +177,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoints: 10
   currencyWorth: 50
-  audioSource: {fileID: 7766881089193675320}
   deathAnim: {fileID: 3096009814184382363, guid: 14dcd72ac23fc32469504eabe47e003b, type: 3}
 --- !u!82 &7766881089193675320
 AudioSource:

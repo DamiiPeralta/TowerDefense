@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3709505195229339461}
-  moveSpeed: 1
+  moveSpeed: 10
   checkpoint: 0
   newPath: 0
 --- !u!114 &5320150765212688288
@@ -155,9 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2493f608ba6d26647878c05bb870a5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 40
+  hitPoints: 5
   currencyWorth: 100
-  audioSource: {fileID: 984095061644688887}
   deathAnim: {fileID: 8012934511599719906, guid: 9c006b72a8f207148aa276b3d732feb9, type: 3}
 --- !u!95 &6433746719786471655
 Animator:

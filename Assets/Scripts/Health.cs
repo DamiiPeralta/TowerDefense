@@ -18,7 +18,6 @@ public class Health : MonoBehaviour
         if (hitPoints <= 0)
         {
             Vector3 currentPosition = transform.position;
-            EnemySpawner.onEnemyDestroy.Invoke();
             LevelManager.main.Currency += currencyWorth;
             //isDestroyed = true;
             Destroy(gameObject);

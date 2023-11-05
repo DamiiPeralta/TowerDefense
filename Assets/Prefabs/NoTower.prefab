@@ -240,7 +240,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c5b60db5a36a62c408d934a55fcebc04, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -324,7 +324,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ca080d1bac628cb4d95824f13258f2b2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 7337457697240564526}
   - component: {fileID: 5741823787980071276}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: NoTower
   m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

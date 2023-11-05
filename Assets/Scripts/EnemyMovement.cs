@@ -49,7 +49,6 @@ public class EnemyMovement : MonoBehaviour
                 if(pathIndex == LevelManager.main.pathOne.Length)
                 {
                     
-                    EnemySpawner.onEnemyDestroy.Invoke();
                     LevelManager.main.EliminateHearth(); 
                     Destroy(gameObject);
                     return;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterController2D : MonoBehaviour
 {
+    [SerializeField] GameObject misionSelectPanel;
+    public bool open = false;
     
     public float animState;
 
@@ -19,6 +21,8 @@ public class CharacterController2D : MonoBehaviour
     public int key;
     public bool isWorking = false;
 
+    public bool canWalk = true;
+
 
     void Awake()
     {
@@ -32,23 +36,33 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            open = !open;
+            misionSelectPanel.GetComponent<MisionSelect>().SetInterfaz();
+            misionSelectPanel.SetActive(open);
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             switch (key)
             {
                 case 1:
+                canWalk = true;
                 camaras[0].SetActive(true);
                 camaras[1].SetActive(false);
                 camaras[2].SetActive(false);
                 key = 2;
                 break;
                 case 2:
+                canWalk = false;
                 camaras[0].SetActive(false);
                 camaras[1].SetActive(true);
                 camaras[2].SetActive(false);
                 key = 3;
                 break;
                 case 3:
+                canWalk = false;
                 camaras[0].SetActive(false);
                 camaras[1].SetActive(false);
                 camaras[2].SetActive(true);
@@ -57,15 +71,19 @@ public class CharacterController2D : MonoBehaviour
             }
             
         }
-        animState = Input.GetAxisRaw("Horizontal");
+        if(canWalk)
+        {
+            
+            animState = Input.GetAxisRaw("Horizontal");
 
-        motionVector = new Vector2(
-            Input.GetAxisRaw("Horizontal"),
-            Input.GetAxisRaw("Vertical")
-            );
-        //animator.SetFloat("horizontal", Input.GetAxisRaw("Horizontal"));
+            motionVector = new Vector2(
+                Input.GetAxisRaw("Horizontal"),
+                Input.GetAxisRaw("Vertical")
+                );
+            //animator.SetFloat("horizontal", Input.GetAxisRaw("Horizontal"));
 
-        AnimationSet();
+            AnimationSet();
+        }
     }
 
     void FixedUpdate()

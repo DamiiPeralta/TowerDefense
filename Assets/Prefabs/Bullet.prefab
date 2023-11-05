@@ -74,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 2099545279
+  m_SortingLayer: 7
+  m_SortingOrder: 10
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0.7716292, b: 0, a: 1}
   m_FlipX: 0
@@ -137,8 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39d83505af7f6614aaf9846f3b359a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeOfBullet: 0
   rb: {fileID: 4059701214146479629}
-  bulletSpeed: 10
+  explosion: {fileID: 0}
+  bulletSpeed: 15
   bulletDamage: 1
 --- !u!1 &3225605124874031971
 GameObject:
@@ -201,4 +203,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06953f7044772cc44a635f0b17d516af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
   bulletDamage: 1

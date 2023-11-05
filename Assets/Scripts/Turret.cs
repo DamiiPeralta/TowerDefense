@@ -7,7 +7,7 @@ using UnityEditor;
 public class Turret : MonoBehaviour
 {
     [Header("Reference")]
-    public Image image;
+    public Sprite sprite;
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;

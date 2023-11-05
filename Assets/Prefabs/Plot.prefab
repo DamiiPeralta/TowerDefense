@@ -126,4 +126,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 8248082224096730219}
   hoverColor: {r: 0.99419355, g: 1, b: 0.4575472, a: 0.5372549}
+  mouseSelectedObject: {fileID: 0}
   turret: {fileID: 0}

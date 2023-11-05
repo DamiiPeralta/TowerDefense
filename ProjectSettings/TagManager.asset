@@ -8,6 +8,8 @@ TagManager:
   - ResourceWood
   - Enemie
   - Turret
+  - FarmTile
+  - BombTile
   layers:
   - Default
   - TransparentFX

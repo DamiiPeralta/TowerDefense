@@ -9,6 +9,10 @@ public class LevelManager : MonoBehaviour
 
     public CenterTextChanged centerTextChanged;
 
+    public MouseSelectedObject mouseSelectedObject;
+
+    public WaveController waveController;
+
     public LevelState state;
 
     public Transform startPoint;
@@ -63,6 +67,7 @@ public class LevelManager : MonoBehaviour
 
     public void EliminateHearth()
     {
+        waveController.losedHearts += 1;
         Lives--;
         if (Lives > 0)
         {
@@ -73,7 +78,22 @@ public class LevelManager : MonoBehaviour
             hearts[0].SetActive(false);
             centerTextChanged.YouLose();
             centerTextChanged.gameObject.SetActive(true);
+            waveController.Restart();
             state = LevelState.Lose;
+            DestruirGameObjectsPorTag(tagObjetosADestruir);
+        }
+    }
+
+    public string tagObjetosADestruir = "Enemie"; 
+
+    // Función para destruir GameObjects por tag.
+    public void DestruirGameObjectsPorTag(string tag)
+    {
+        GameObject[] objetosADestruir = GameObject.FindGameObjectsWithTag(tag);
+
+        foreach (GameObject objeto in objetosADestruir)
+        {
+            Destroy(objeto);
         }
     }
 
